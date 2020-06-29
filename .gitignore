@@ -6,10 +6,16 @@
 .pnp.js
 
 # testing
-/coverage
+*.test.js
 
 # production
 /build
+
+# assets
+/public
+
+# content
+/src/videos
 
 # misc
 .DS_Store
