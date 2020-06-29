@@ -4,6 +4,7 @@ import 'intersection-observer';
 import Observer from '@researchgate/react-intersection-observer';
 
 import LoadingAnimation from './LoadingAnimation';
+import { findAllByDisplayValue } from '@testing-library/react';
 
 class VideoSection extends React.Component {
   constructor(props) {
@@ -32,11 +33,13 @@ class VideoSection extends React.Component {
         // Set the active video
         setTimeout(() => { 
           self.setState({ 
-            started: true,
-            loading: false
+            started: true
           })
           setTimeout(() => {
-            self.setState({ cleared: true }) 
+            self.setState({ 
+              cleared: true, 
+              loading: false
+            }) 
           }, 2000)
         }, 1000)
       }
@@ -91,7 +94,7 @@ class VideoSection extends React.Component {
             <div className={this.state.started ? 'started' : ''}>
               <div>
                 <div className="responsive-video">
-                  {this.state.loading && <LoadingAnimation cleared={this.state.cleared} />}
+                  <LoadingAnimation active={this.state.loading} cleared={this.state.cleared} />
                   <img 
                     className={this.state.cleared ? 'cleared' : ''}
                     src={require(`../../public/assets/img/0${this.props.videoId}.jpg`)} 
@@ -104,7 +107,7 @@ class VideoSection extends React.Component {
                     width="640" 
                     height="360" 
                     frameBorder="0" 
-                    allow="autoplay; fullscreen" 
+                    allow="fullscreen" 
                     allowFullScreen
                   ></iframe>
                 </div>
