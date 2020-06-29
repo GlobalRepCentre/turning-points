@@ -100,7 +100,7 @@ class VideoSection extends React.Component {
                   <iframe 
                     ref={this.videoRef}
                     title={this.props.name + "'s Story"} 
-                    src="https://player.vimeo.com/video/384567641" 
+                    src={'https://player.vimeo.com/video/' + this.props.vimeoId} 
                     width="640" 
                     height="360" 
                     frameBorder="0" 
@@ -110,7 +110,7 @@ class VideoSection extends React.Component {
                 </div>
                 <button onClick={this.playVideo} className={this.state.cleared ? 'play cleared' : 'play'}>play</button>
               </div>
-              <blockquote>"Catherine grew up in Yellowknife. She was raised in the city and was never taught her language or culture."</blockquote>
+              <blockquote>"{this.props.blockQuote}"</blockquote>
               <h2 className={this.state.cleared ? 'cleared' : ''}>{this.props.name}</h2>
             </div>
           </section>

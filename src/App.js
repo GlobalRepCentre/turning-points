@@ -48,6 +48,8 @@ class App extends React.Component {
         key={video.id}
         name={video.name}
         videoId={video.id}
+        vimeoId={video.vimeoId}
+        blockQuote={video.blockQuote}
       />
     );
     

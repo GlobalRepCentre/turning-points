@@ -12,7 +12,7 @@
 /build
 
 # assets
-/public
+/public/assets
 
 # content
 /src/videos
